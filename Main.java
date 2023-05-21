@@ -9,11 +9,19 @@ import java.util.Random;
  */
 public class Main {
   private static Scanner userInput = new Scanner(System.in);
+  int[][] articles = new int[10][3];
+  int articleNumber = 1000;
+  int noOfArticles = 0;
 
   public static void main(String[] args) {
     while (true) {
       switch (menu()) {
         case 1:
+          System.out
+              .println("\n----------------------------\n# Enter amount of articles\n----------------------------");
+          System.out.print("Enter the amount of items you want to add: ");
+          noOfArticles = input();
+          articles = insertArticles(articles, articleNumber, noOfArticles);
           break;
         case 2:
           break;
