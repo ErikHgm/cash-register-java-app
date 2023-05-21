@@ -14,7 +14,7 @@ public class Main {
     int[][] articles = new int[10][3];
     int articleNumber = 1000;
     int noOfArticles = 0;
-    
+
     while (true) {
       switch (menu()) {
         case 1:
@@ -35,7 +35,8 @@ public class Main {
         case 6:
           break;
         case 7:
-          break;
+          System.out.println("Goodbye!");
+          System.exit(0);
         default:
           break;
       }
@@ -89,4 +90,17 @@ public class Main {
     return userinput;
   }
 
+  /**
+   * Inserts articles into the inventory.
+   *
+   * @param articles      The articles array.
+   * @param articleNumber The starting article number.
+   * @param noOfArticles  The number of articles to insert.
+   * @return The updated articles array.
+   */
+
+  public static int[][] insertArticles(int[][] articles, int articleNumber, int noOfArticles) {
+
+    return articles;
+  }
 }// end main class
