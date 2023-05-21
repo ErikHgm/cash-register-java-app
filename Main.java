@@ -9,11 +9,12 @@ import java.util.Random;
  */
 public class Main {
   private static Scanner userInput = new Scanner(System.in);
-  int[][] articles = new int[10][3];
-  int articleNumber = 1000;
-  int noOfArticles = 0;
 
   public static void main(String[] args) {
+    int[][] articles = new int[10][3];
+    int articleNumber = 1000;
+    int noOfArticles = 0;
+    
     while (true) {
       switch (menu()) {
         case 1:
