@@ -8,6 +8,8 @@ import java.util.Random;
  * 
  */
 public class Main {
+  private static Scanner userInput = new Scanner(System.in);
+
   public static void main(String[] args) {
     while (true) {
       switch (menu()) {
@@ -32,6 +34,34 @@ public class Main {
   }// end main method
 
   /**
+   * Retrieves the user input.
+   *
+   * @return an integer
+   */
+  public static int input() {
+    int inputNum = 0;
+    while (true) {
+      if (userInput.hasNextInt()) {
+        inputNum = userInput.nextInt();
+        if (inputNum > 0) {
+          break;
+        } else {
+          System.out.println("Please enter a number greater than zero");
+        }
+      } else if (userInput.hasNext()) {
+        String inString = userInput.next();
+        if (inString.equalsIgnoreCase("q")) {
+          inputNum = 7;
+          break;
+        } else {
+          System.out.println("Please enter a number or q to quit");
+        }
+      }
+    }
+    return inputNum;
+  }
+
+  /**
    * Displays the menu options and retrieves user input.
    *
    * @return an integer representing the selected option
@@ -46,6 +76,7 @@ public class Main {
     System.out.println(" 6. Sort and display order history table");
     System.out.println(" Q. Quit");
     System.out.print("Enter option: ");
+    int userinput = input();
     return userinput;
   }
 
