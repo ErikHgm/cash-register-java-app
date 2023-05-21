@@ -100,7 +100,29 @@ public class Main {
    */
 
   public static int[][] insertArticles(int[][] articles, int articleNumber, int noOfArticles) {
+    int quantity = 0;
+    int price = 0;
+    int arrayTracker = 0;
 
+    // Insert specified number of articles into the inventory
+    for (int i = 0; i < noOfArticles; i++) {
+      for (int row = arrayTracker; row < articles.length; row++) {
+        // Find the first available row in the articles array
+        if (articles[row][0] == 0) {
+          // Generate random quantity and price
+          quantity = (int) (Math.random() * 9) + 1;
+          price = (int) (Math.random() * 199) + 1;
+
+          // Assign article details to the row
+          articles[row][0] = articleNumber + row;
+          articles[row][1] = quantity;
+          articles[row][2] = price;
+          arrayTracker = row;
+          break;
+        }
+      }
+    }
+    System.out.println("Thank you, " + noOfArticles + " items have been successfully added to the inventory!");
     return articles;
   }
 }// end main class
