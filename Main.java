@@ -99,6 +99,20 @@ public class Main {
    * @return The updated articles array.
    */
 
+  /**
+   * Expands the size of the articles array by the specified size and returns the
+   * expanded array.
+   *
+   * @param articles The articles array.
+   * @param size     The size by which the array should be expanded.
+   * @return The expanded articles array.
+   */
+  public static int[][] expandArray(int[][] articles, int size) {
+    int[][] tempArticles = new int[articles.length + size][3];
+    System.arraycopy(articles, 0, tempArticles, 0, articles.length);
+    return tempArticles;
+  }
+
   public static int[][] insertArticles(int[][] articles, int articleNumber, int noOfArticles) {
     int quantity = 0;
     int price = 0;
