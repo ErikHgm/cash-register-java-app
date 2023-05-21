@@ -91,13 +91,27 @@ public class Main {
   }
 
   /**
-   * Inserts articles into the inventory.
+   * Checks if the articles array has enough free slots to accommodate the
+   * specified number of articles.
+   * If not, expands the array and returns the expanded array.
    *
-   * @param articles      The articles array.
-   * @param articleNumber The starting article number.
-   * @param noOfArticles  The number of articles to insert.
+   * @param articles     The articles array.
+   * @param noOfArticles The number of articles to be inserted.
    * @return The updated articles array.
    */
+  public static int[][] checkFull(int[][] articles, int noOfArticles) {
+    int freeSlots = 0;
+    for (int i = 0; i < articles.length; i++) {
+      if (articles[i][0] == 0) {
+        freeSlots++;
+      }
+    }
+    if (freeSlots < noOfArticles) {
+      return expandArray(articles, noOfArticles - freeSlots);
+    }
+
+    return articles;
+  }
 
   /**
    * Expands the size of the articles array by the specified size and returns the
@@ -112,6 +126,15 @@ public class Main {
     System.arraycopy(articles, 0, tempArticles, 0, articles.length);
     return tempArticles;
   }
+
+  /**
+   * Inserts articles into the inventory.
+   *
+   * @param articles      The articles array.
+   * @param articleNumber The starting article number.
+   * @param noOfArticles  The number of articles to insert.
+   * @return The updated articles array.
+   */
 
   public static int[][] insertArticles(int[][] articles, int articleNumber, int noOfArticles) {
     int quantity = 0;
